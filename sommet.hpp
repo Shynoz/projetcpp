@@ -13,8 +13,8 @@ class Sommet {
     Sommet* droite;
 
   public:
-
-
+    Sommet(): valeur(NULL),gauche(NULL),droite(NULL){}
+    Sommet(const Sommet& s):valeur(s.valeur),gauche(s.gauche),droite(s.droite){};
      ~Sommet() {
       if (gauche)
         delete gauche;

@@ -8,10 +8,11 @@ public:
 
 private:
     Sommet* root;
+    
 
 public:
-  void Suppression(Sommet s);
-  void Insertion(Sommet s);
+  ArbreB();
+  ArbreB Insertion(ArbreB *b,Sommet* s);
   ~ArbreB() {
     if (root)
       delete root;
