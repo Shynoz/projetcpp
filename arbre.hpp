@@ -8,10 +8,10 @@ public:
 
 private:
     Sommet* root;
-    
-
 public:
-  ArbreB();
+  ArbreB(){
+    root=new Sommet(0);
+    };
   ArbreB Insertion(ArbreB *b,Sommet* s);
   ~ArbreB() {
     if (root)
