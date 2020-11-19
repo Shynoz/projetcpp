@@ -8,14 +8,14 @@ using namespace std;
 
 class Sommet {
   private:
+  public:
     int valeur;
     Sommet* gauche;
     Sommet* droite;
-
-  public:
-    Sommet(): valeur(NULL),gauche(NULL),droite(NULL){}
+    Sommet(int val): valeur(val),gauche(NULL),droite(NULL){}
     Sommet(const Sommet& s):valeur(s.valeur),gauche(s.gauche),droite(s.droite){};
-     ~Sommet() {
+    
+    ~Sommet() {
       if (gauche)
         delete gauche;
       if (droite)
