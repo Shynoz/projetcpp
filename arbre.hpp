@@ -1,22 +1,24 @@
 #ifndef ArbreB_hpp
 #define ArbreB_hpp
 
-#include <stdio.h>
+#include <iostream>
 #include "sommet.hpp"
 class ArbreB {
+private:
+  Sommet * root;
+protected:
+    Sommet* Insertion(Sommet* s, int val);
+    Sommet* Suppression(Sommet*s, int val);
+    void print(Sommet * s);
 public:
 
-private:
-    Sommet* root;
-public:
-  ArbreB(){
-    root=new Sommet(0);
-    };
-  ArbreB Insertion(ArbreB *b,Sommet* s);
-  ~ArbreB() {
-    if (root)
-      delete root;
-  }
+  ArbreB();
+
+  void Insertion(int Valeur);
+
+  void print();
+
+
 };
 
 
