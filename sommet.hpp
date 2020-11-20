@@ -10,13 +10,13 @@ class Sommet {
   protected:
     
   public:
-    int valeur;
-    Sommet* gauche;
+    int valeur;  /* on initialise une valeur pour notre sommet que l'on place a droite ou a gauche  */
+    Sommet* gauche;  
     Sommet* droite;
     
       
-    ~Sommet() {
-      if (gauche)
+    ~Sommet() {  
+      if (gauche)   /* destructeur du sommet */
         delete gauche;
       if (droite)
         delete droite;
