@@ -48,6 +48,10 @@ Sommet * ArbreB::Suppression(Sommet * s,int Valeur)
         s->gauche  = Suppression(s->gauche , Valeur);
     return s;
 }
+void ArbreB::Suppression(int Valeur)
+{
+    root = Suppression(root, Valeur);
+}
 
 Sommet * ArbreB::Fusion(Sommet* s1, Sommet* s2){
     if (!s1) 
@@ -59,9 +63,9 @@ Sommet * ArbreB::Fusion(Sommet* s1, Sommet* s2){
     s1->droite = Fusion(s1->droite, s2->droite); 
     return s1; 
 }
-void ArbreB::Suppression(int Valeur)
+void ArbreB::Fusion(ArbreB* s)
 {
-    root = Suppression(root, Valeur);
+    root = Fusion(root, s->root);
 }
 
 Sommet * ArbreB::Recherche(Sommet *s,int val)
@@ -101,3 +105,12 @@ void ArbreB::print()
     std::cout << std::endl;
 }
 
+Sommet* ArbreB::Modification(Sommet* s,int val, int newVal){
+   s=Suppression(s,val);
+   s=Insertion(s,newVal);
+   return s;
+}
+
+void ArbreB::Modification(int val, int newVal){
+    root = Modification(root,val,newVal);
+}
