@@ -1,5 +1,9 @@
 #include "arbre.hpp"
 
+ArbreB::ArbreB(){
+    root=NULL;
+}
+
 Sommet* ArbreB::Insertion(Sommet* s,int n){
     if(s == NULL) {
         s = new Sommet;
@@ -15,8 +19,10 @@ Sommet* ArbreB::Insertion(Sommet* s,int n){
     }
     return s;
 }
-
-
+void ArbreB::Insertion(int Valeur)
+{
+    root = Insertion(root, Valeur);
+}
 
 Sommet * ArbreB::Suppression(Sommet * s,int Valeur)
 {
@@ -43,14 +49,50 @@ Sommet * ArbreB::Suppression(Sommet * s,int Valeur)
     return s;
 }
 
+Sommet * ArbreB::Fusion(Sommet* s1, Sommet* s2){
+    if (!s1) 
+        return s2; 
+    if (!s2) 
+        return s1; 
+    s1->valeur += s2->valeur; 
+    s1->gauche = Fusion(s1->gauche, s2->gauche); 
+    s1->droite = Fusion(s1->droite, s2->droite); 
+    return s1; 
+}
+void ArbreB::Suppression(int Valeur)
+{
+    root = Suppression(root, Valeur);
+}
 
-void ArbreB::print(Sommet* abr){
-  if(abr==NULL){
+Sommet * ArbreB::Recherche(Sommet *s,int val)
+{
+  if(s!=NULL)
+  {
+    if(val==s->valeur)
+      return s;
+    if(val<s->valeur)
+      return Recherche(s->gauche, val);
+    else
+      return Recherche(s->droite,val);
+  }
+  else return NULL;
+}
+
+bool ArbreB::Recherche(int Valeur)
+{
+    Sommet * result = Recherche(root, Valeur);
+    return result == NULL ?
+        false :
+        true;
+}
+
+void ArbreB::print(Sommet* s){
+  if(s==NULL){
     return ;
   }
-  std::cout<<abr->valeur<<" ";
-  print(abr->gauche);
-  print(abr->droite);
+  std::cout<<s->valeur<<" ";
+  print(s->gauche);
+  print(s->droite);
 }
 
 void ArbreB::print()
@@ -59,12 +101,3 @@ void ArbreB::print()
     std::cout << std::endl;
 }
 
-int main()
-{
-    ArbreB* root= new ArbreB();
-    int keys[] = {23, 12, 31, 3, 15, 7, 29, 88, 53}; 
-    for(const int& key : keys)
-        root->Insertion(key);
-        root->print();
-  return 0;
-}
