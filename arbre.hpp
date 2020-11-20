@@ -7,11 +7,11 @@ class ArbreB {
 private:
   Sommet * root;
 protected:
-    Sommet* Insertion(Sommet* s, int val);
-    Sommet* Suppression(Sommet*s, int val);
-    Sommet* Fusion(Sommet* s1, Sommet * s2);
-    void print(Sommet * s);
-    Sommet* Recherche(Sommet *s,int val);
+    Sommet* Insertion(Sommet* s, int val); /* insertion d'un sommet */
+    Sommet* Suppression(Sommet*s, int val);  /* suppression d'un sommet */
+    Sommet* Fusion(Sommet* s1, Sommet * s2); /* Fusion de deux sommet entre eux */
+    void print(Sommet * s);   /* affichage du sommet */
+    Sommet* Recherche(Sommet *s,int val); /* recherche du sommet */
 public:
 
   ArbreB();
